@@ -2,6 +2,7 @@ package com.github.scraniel;
 
 import com.github.scraniel.Commands.ICommand;
 import com.github.scraniel.Commands.JokeCommand;
+import com.github.scraniel.Commands.MillionDollarsButCommand;
 import sx.blah.discord.api.events.EventSubscriber;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
 
@@ -9,6 +10,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * All this class will do is parse the input and route it to the applicable Command
+ */
 public class CommandHandler {
 
     private Map<String, ICommand> commandMap;
@@ -20,11 +24,9 @@ public class CommandHandler {
 
         // TODO: Source this out to a config file?
         commandMap.put(BotUtils.BOT_PREFIX + "joke", new JokeCommand());
+        commandMap.put(BotUtils.BOT_PREFIX + "mdb", new MillionDollarsButCommand(BotUtils.QUESTIONS_JSON));
     }
 
-    /*
-     * All this class will do is parse the input and route it to the applicable Command
-     */
     @EventSubscriber
     public void onMessageReceived(MessageReceivedEvent event){
         String content = event.getMessage().getContent();

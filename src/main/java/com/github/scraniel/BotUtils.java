@@ -7,11 +7,17 @@ import sx.blah.discord.util.DiscordException;
 import sx.blah.discord.util.RateLimitException;
 import sx.blah.discord.util.RequestBuffer;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 public class BotUtils {
 
     // Constants for use throughout the bot
     public static final String BOT_PREFIX = "/";
     public static final String USER_AGENT = "Million Dollars But... Bot (https://github.com/scraniel/milliondollarsbut)";
+    public static final String QUESTIONS_JSON = "questions.json";
 
     // Handles the creation and getting of a IDiscordClient object for a token
     static IDiscordClient getBuiltDiscordClient(String token){
@@ -27,7 +33,6 @@ public class BotUtils {
     // Helper functions to make certain aspects of the bot easier to use.
     public static void sendMessage(IChannel channel, String message){
 
-        // This might look weird but it'll be explained in another page.
         RequestBuffer.request(() -> {
             try{
                 channel.sendMessage(message);
@@ -36,18 +41,22 @@ public class BotUtils {
                 e.printStackTrace();
             }
         });
+    }
 
-        /*
-        // The below example is written to demonstrate sending a message if you want to catch the RLE for logging purposes
-        RequestBuffer.request(() -> {
-            try{
-                channel.sendMessage(message);
-            } catch (RateLimitException e){
-                System.out.println("Do some logging");
-                throw e;
+    // Takes an InputStream and concatenates it all into one String
+    public static String convertInputStreamToString(InputStream stream)
+    {
+        // Dumb stream reading
+        String inputLine;
+        StringBuffer stringBuffer = new StringBuffer();
+
+        try(BufferedReader in = new BufferedReader(new InputStreamReader(stream)))
+        {
+            while ((inputLine = in.readLine()) != null) {
+                stringBuffer.append(inputLine);
             }
-        });
-        */
+        }catch (IOException e) {}
 
+        return stringBuffer.toString();
     }
 }
