@@ -1,0 +1,5 @@
+com/github/scraniel/Commands/ICommand.class
+com/github/scraniel/BotUtils.class
+com/github/scraniel/CommandHandler.class
+com/github/scraniel/MainRunner.class
+com/github/scraniel/Commands/JokeCommand.class
