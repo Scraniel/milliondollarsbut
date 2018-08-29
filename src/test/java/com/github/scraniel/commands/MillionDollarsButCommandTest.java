@@ -1,4 +1,4 @@
-package com.github.scraniel.Commands;
+package com.github.scraniel.commands;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,9 +11,9 @@ public class MillionDollarsButCommandTest {
 
     @Test
     public void MillionDollarsButCommand_GetQuestionsTest(){
-        MillionDollarsButCommand command = new MillionDollarsButCommand("testquestions.json");
+        MillionDollarsButCommand command = new MillionDollarsButCommand("testquestions.json", null);
 
-        String question = command.getMessage(null);
+        String question = command.getMessage();
 
         String[] validQuestions = new String[]{MILLION_DOLLARS_PREFIX + "You don't get a million dollars.", MILLION_DOLLARS_PREFIX + "You are now dead.", MILLION_DOLLARS_PREFIX + "You get two million dollars."};
 

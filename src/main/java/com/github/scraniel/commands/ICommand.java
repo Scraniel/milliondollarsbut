@@ -1,4 +1,4 @@
-package com.github.scraniel.Commands;
+package com.github.scraniel.commands;
 
 import sx.blah.discord.api.events.Event;
 

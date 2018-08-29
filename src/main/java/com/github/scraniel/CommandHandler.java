@@ -1,8 +1,9 @@
 package com.github.scraniel;
 
-import com.github.scraniel.Commands.ICommand;
-import com.github.scraniel.Commands.JokeCommand;
-import com.github.scraniel.Commands.MillionDollarsButCommand;
+import com.github.scraniel.commands.ICommand;
+import com.github.scraniel.commands.JokeCommand;
+import com.github.scraniel.commands.MillionDollarsButCommand;
+import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.events.EventSubscriber;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
 
@@ -16,15 +17,21 @@ import java.util.Map;
 public class CommandHandler {
 
     private Map<String, ICommand> commandMap;
+    private IDiscordClient discordContext;
+    public static final String BOT_PREFIX = "/";
 
-    public CommandHandler()
+    public CommandHandler(IDiscordClient context)
     {
+        // Store discord client context
+        discordContext = context;
+
         // Create and populate the commandMap
         commandMap = new HashMap<>();
+    }
 
-        // TODO: Source this out to a config file?
-        commandMap.put(BotUtils.BOT_PREFIX + "joke", new JokeCommand());
-        commandMap.put(BotUtils.BOT_PREFIX + "mdb", new MillionDollarsButCommand(BotUtils.QUESTIONS_JSON));
+    public void registerCommand(String commandName, ICommand command)
+    {
+        commandMap.put(BOT_PREFIX + commandName, command);
     }
 
     @EventSubscriber
@@ -32,7 +39,7 @@ public class CommandHandler {
         String content = event.getMessage().getContent();
 
         // We only want to deal with bot commands
-        if(content.startsWith(BotUtils.BOT_PREFIX)) {
+        if(content.startsWith(BOT_PREFIX)) {
 
             // Arguments to send will be following the command
             String[] splitContent = content.split(" ");

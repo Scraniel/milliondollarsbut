@@ -1,23 +1,21 @@
-package com.github.scraniel.Commands;
+package com.github.scraniel.commands;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.github.scraniel.BotUtils;
-import sx.blah.discord.api.events.Event;
-import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
+import sx.blah.discord.api.IDiscordClient;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class MillionDollarsButCommand extends MessageCommand{
+public class MillionDollarsButCommand extends AbstractMessageCommand {
 
     private ArrayList<String> questions;
     private Random rng;
     private final String MILLION_DOLLARS_PREFIX = "You get a million dollars, but... ";
 
-    public MillionDollarsButCommand(String fileName){
+    public MillionDollarsButCommand(String fileName, IDiscordClient context){
+        super(context);
 
         // Get some of that RNG
         rng = new Random();
@@ -49,7 +47,12 @@ public class MillionDollarsButCommand extends MessageCommand{
     }
 
     @Override
-    public String getMessage(String[] args) {
+    public String getMessage() {
         return MILLION_DOLLARS_PREFIX + questions.get(rng.nextInt(questions.size()));
+    }
+
+    @Override
+    void cleanUp() {
+
     }
 }

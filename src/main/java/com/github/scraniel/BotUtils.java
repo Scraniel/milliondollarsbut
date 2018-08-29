@@ -14,11 +14,6 @@ import java.io.InputStreamReader;
 
 public class BotUtils {
 
-    // Constants for use throughout the bot
-    public static final String BOT_PREFIX = "/";
-    public static final String USER_AGENT = "Million Dollars But... Bot (https://github.com/scraniel/milliondollarsbut)";
-    public static final String QUESTIONS_JSON = "questions.json";
-
     // Handles the creation and getting of a IDiscordClient object for a token
     static IDiscordClient getBuiltDiscordClient(String token){
 
