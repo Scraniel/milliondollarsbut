@@ -21,5 +21,4 @@ public class MainRunner {
         handler.registerCommand("joke", new JokeCommand());
         handler.registerCommand("mdb", new MillionDollarsButCommand(QUESTIONS_JSON));
     }
-
 }

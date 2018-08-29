@@ -59,9 +59,4 @@ public class MillionDollarsButCommand extends AbstractMessageCommand {
     public String getMessage() {
         return MILLION_DOLLARS_PREFIX + questions.get(rng.nextInt(questions.size()));
     }
-
-    @Override
-    void cleanUp() {
-
-    }
 }

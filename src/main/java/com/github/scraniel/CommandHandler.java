@@ -1,8 +1,6 @@
 package com.github.scraniel;
 
 import com.github.scraniel.commands.ICommand;
-import com.github.scraniel.commands.JokeCommand;
-import com.github.scraniel.commands.MillionDollarsButCommand;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.events.EventSubscriber;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
@@ -32,7 +30,6 @@ public class CommandHandler {
 
         // Create the commandMap
         commandMap = new HashMap<>();
-
     }
 
     public void init(String token)
@@ -48,8 +45,7 @@ public class CommandHandler {
 
     public void registerCommand(String commandName, ICommand command)
     {
-
-
+        command.setDiscordContext(discordContext);
         commandMap.put(BOT_PREFIX + commandName, command);
     }
 
@@ -70,5 +66,4 @@ public class CommandHandler {
             }
         }
     }
-
 }

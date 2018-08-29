@@ -43,5 +43,4 @@ public abstract class AbstractCommand implements ICommand{
     abstract boolean setUp();
     abstract void doCommand();
     abstract void cleanUp();
-
 }

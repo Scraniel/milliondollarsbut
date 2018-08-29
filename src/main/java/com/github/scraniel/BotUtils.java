@@ -4,7 +4,6 @@ import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.util.DiscordException;
-import sx.blah.discord.util.RateLimitException;
 import sx.blah.discord.util.RequestBuffer;
 
 import java.io.BufferedReader;
@@ -22,7 +21,6 @@ public class BotUtils {
         return new ClientBuilder()
                 .withToken(token)
                 .build();
-
     }
 
     // Helper functions to make certain aspects of the bot easier to use.

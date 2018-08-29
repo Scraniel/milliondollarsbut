@@ -37,7 +37,6 @@ public class JokeCommand extends AbstractMessageCommand {
             con.setRequestProperty("Accept", "text/plain");
 
             joke = BotUtils.convertInputStreamToString(con.getInputStream());
-
         } catch (Exception e) {}
 
         return joke;
