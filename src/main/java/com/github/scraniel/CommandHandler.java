@@ -16,21 +16,40 @@ import java.util.Map;
  */
 public class CommandHandler {
 
-    private Map<String, ICommand> commandMap;
-    private IDiscordClient discordContext;
+    private Map<String, ICommand> commandMap = null;
+    private IDiscordClient discordContext = null;
     public static final String BOT_PREFIX = "/";
+
+    public CommandHandler()
+    {
+        commandMap = new HashMap<>();
+    }
 
     public CommandHandler(IDiscordClient context)
     {
         // Store discord client context
         discordContext = context;
 
-        // Create and populate the commandMap
+        // Create the commandMap
         commandMap = new HashMap<>();
+
+    }
+
+    public void init(String token)
+    {
+        IDiscordClient cli = BotUtils.getBuiltDiscordClient(token);
+
+        // Register a listener via the EventSubscriber annotation which allows for organisation and delegation of events
+        cli.getDispatcher().registerListener(this);
+
+        // Only login after all events are registered otherwise some may be missed.
+        cli.login();
     }
 
     public void registerCommand(String commandName, ICommand command)
     {
+
+
         commandMap.put(BOT_PREFIX + commandName, command);
     }
 

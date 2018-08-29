@@ -24,7 +24,7 @@ public abstract class AbstractMessageCommand extends AbstractCommand {
     @Override
     boolean setUp()
     {
-        // We only handle ChannelEvents here (we need to be able to get which channel to post to)
+        // We only handle ChannelEvents here (we need to be able to get which channel to post to if none provided)
         if(!(currentEvent instanceof ChannelEvent)) {
             return false;
         }
@@ -35,7 +35,6 @@ public abstract class AbstractMessageCommand extends AbstractCommand {
 
     @Override
     void doCommand() {
-
         BotUtils.sendMessage(currentChannel, getMessage());
     }
 

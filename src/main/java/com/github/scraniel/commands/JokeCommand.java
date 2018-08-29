@@ -15,6 +15,11 @@ public class JokeCommand extends AbstractMessageCommand {
         super(context);
     }
 
+    public JokeCommand()
+    {
+        super();
+    }
+
     @Override
     public String getMessage() {
 

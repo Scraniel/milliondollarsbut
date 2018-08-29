@@ -14,12 +14,21 @@ public class MillionDollarsButCommand extends AbstractMessageCommand {
     private Random rng;
     private final String MILLION_DOLLARS_PREFIX = "You get a million dollars, but... ";
 
+    // If we add any other params, consider builder pattern
     public MillionDollarsButCommand(String fileName, IDiscordClient context){
         super(context);
+        init(fileName);
+    }
 
-        // Get some of that RNG
+    public MillionDollarsButCommand(String fileName)
+    {
+        super();
+        init(fileName);
+    }
+
+    private void init(String fileName)
+    {
         rng = new Random();
-
         questions = loadQuestionsFromFile(fileName);
     }
 
@@ -34,7 +43,7 @@ public class MillionDollarsButCommand extends AbstractMessageCommand {
         try
         {
             String[] questionArray = mapper.readValue(json, String[].class);
-            questions = new ArrayList<String>(Arrays.asList(questionArray));
+            questions = new ArrayList<>(Arrays.asList(questionArray));
         }catch (Exception e){}
 
         if(questions == null)

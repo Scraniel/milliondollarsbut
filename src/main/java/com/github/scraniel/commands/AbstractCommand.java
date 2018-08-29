@@ -34,6 +34,12 @@ public abstract class AbstractCommand implements ICommand{
         currentArguments = null;
     }
 
+    @Override
+    public void setDiscordContext(IDiscordClient context)
+    {
+        discordContext = context;
+    }
+
     abstract boolean setUp();
     abstract void doCommand();
     abstract void cleanUp();
