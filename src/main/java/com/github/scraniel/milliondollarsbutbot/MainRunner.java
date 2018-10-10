@@ -1,8 +1,9 @@
-package com.github.scraniel;
+package com.github.scraniel.milliondollarsbutbot;
 
-import com.github.scraniel.commands.BallpitMessageCommand;
-import com.github.scraniel.commands.JokeMessageCommand;
-import com.github.scraniel.commands.MillionDollarsButMessageCommand;
+import com.github.scraniel.basebot.EventHandler;
+import com.github.scraniel.milliondollarsbutbot.commands.BallpitMessageCommand;
+import com.github.scraniel.milliondollarsbutbot.commands.JokeMessageCommand;
+import com.github.scraniel.milliondollarsbutbot.commands.MillionDollarsButMessageCommand;
 
 public class MainRunner {
 

@@ -1,6 +1,7 @@
-package com.github.scraniel.commands;
+package com.github.scraniel.milliondollarsbutbot.commands;
 
-import com.github.scraniel.BotUtils;
+import com.github.scraniel.basebot.commands.AbstractMessageCommand;
+import com.github.scraniel.basebot.BotUtils;
 import sx.blah.discord.api.IDiscordClient;
 
 import java.net.HttpURLConnection;

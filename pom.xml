@@ -31,7 +31,7 @@
                             <!-- Specify your own main class here: {package}.{class} -->
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.github.scraniel.MainRunner</mainClass>
+                            <mainClass>com.github.scraniel.milliondollarsbutbot.MainRunner</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -53,9 +53,19 @@
             <id>jcenter</id>
             <url>http://jcenter.bintray.com</url>
         </repository>
+
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
+        </repository>
+
+        <repository>
+            <id>base-bot-mvn-repo</id>
+            <url>https://raw.github.com/Scraniel/base-bot/mvn-repo/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
         </repository>
     </repositories>
 
@@ -76,6 +86,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.scraniel</groupId>
+            <artifactId>base-bot</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

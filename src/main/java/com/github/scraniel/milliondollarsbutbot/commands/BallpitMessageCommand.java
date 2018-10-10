@@ -1,5 +1,6 @@
-package com.github.scraniel.commands;
+package com.github.scraniel.milliondollarsbutbot.commands;
 
+import com.github.scraniel.basebot.commands.AbstractMessageCommand;
 import sx.blah.discord.handle.impl.events.guild.channel.message.reaction.ReactionEvent;
 import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.handle.obj.IReaction;

@@ -1,4 +1,4 @@
-package com.github.scraniel.commands;
+package com.github.scraniel.milliondollarsbutbot.commands;
 
 import org.junit.Assert;
 import org.junit.Test;

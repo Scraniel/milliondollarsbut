@@ -1,7 +1,8 @@
-package com.github.scraniel.commands;
+package com.github.scraniel.milliondollarsbutbot.commands;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.scraniel.BotUtils;
+import com.github.scraniel.basebot.BotUtils;
+import com.github.scraniel.basebot.commands.AbstractMessageCommand;
 import sx.blah.discord.api.IDiscordClient;
 
 import java.util.ArrayList;
