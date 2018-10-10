@@ -1,7 +1,8 @@
 package com.github.scraniel;
 
-import com.github.scraniel.commands.JokeCommand;
-import com.github.scraniel.commands.MillionDollarsButCommand;
+import com.github.scraniel.commands.BallpitMessageCommand;
+import com.github.scraniel.commands.JokeMessageCommand;
+import com.github.scraniel.commands.MillionDollarsButMessageCommand;
 
 public class MainRunner {
 
@@ -14,11 +15,12 @@ public class MainRunner {
             return;
         }
 
-        CommandHandler handler = new CommandHandler();
+        EventHandler handler = new EventHandler();
         handler.init(args[0]);
 
         // TODO: Source this out to a config file?
-        handler.registerCommand("joke", new JokeCommand());
-        handler.registerCommand("mdb", new MillionDollarsButCommand(QUESTIONS_JSON));
+        handler.registerMessageCommand("joke", new JokeMessageCommand());
+        handler.registerMessageCommand("mdb", new MillionDollarsButMessageCommand(QUESTIONS_JSON));
+        handler.registerReactionCommand("ballpit", new BallpitMessageCommand());
     }
 }

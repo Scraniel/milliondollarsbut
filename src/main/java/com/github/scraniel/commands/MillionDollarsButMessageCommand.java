@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class MillionDollarsButCommand extends AbstractMessageCommand {
+public class MillionDollarsButMessageCommand extends AbstractMessageCommand {
 
     private ArrayList<String> questions;
     private Random rng;
     private final String MILLION_DOLLARS_PREFIX = "You get a million dollars, but... ";
 
     // If we add any other params, consider builder pattern
-    public MillionDollarsButCommand(String fileName, IDiscordClient context){
+    public MillionDollarsButMessageCommand(String fileName, IDiscordClient context){
         super(context);
         init(fileName);
     }
 
-    public MillionDollarsButCommand(String fileName)
+    public MillionDollarsButMessageCommand(String fileName)
     {
         super();
         init(fileName);

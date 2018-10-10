@@ -5,13 +5,13 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class MillionDollarsButCommandTest {
+public class MillionDollarsButMessageCommandTest {
 
     private final String MILLION_DOLLARS_PREFIX = "You get a million dollars, but... ";
 
     @Test
     public void MillionDollarsButCommand_GetQuestionsTest(){
-        MillionDollarsButCommand command = new MillionDollarsButCommand("testquestions.json", null);
+        MillionDollarsButMessageCommand command = new MillionDollarsButMessageCommand("testquestions.json", null);
 
         String question = command.getMessage();
 

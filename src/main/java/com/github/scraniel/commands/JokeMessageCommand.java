@@ -6,16 +6,16 @@ import sx.blah.discord.api.IDiscordClient;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class JokeCommand extends AbstractMessageCommand {
+public class JokeMessageCommand extends AbstractMessageCommand {
 
     private final String USER_AGENT = "Million Dollars But... Bot (https://github.com/scraniel/milliondollarsbut)";
 
-    public JokeCommand(IDiscordClient context)
+    public JokeMessageCommand(IDiscordClient context)
     {
         super(context);
     }
 
-    public JokeCommand()
+    public JokeMessageCommand()
     {
         super();
     }
