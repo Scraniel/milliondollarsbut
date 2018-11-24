@@ -1,5 +1,6 @@
 package com.github.scraniel.milliondollarsbutbot.commands;
 
+import com.github.scraniel.milliondollarsbutbot.QuestionService;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,13 +12,14 @@ public class MillionDollarsButMessageCommandTest {
 
     @Test
     public void MillionDollarsButCommand_GetQuestionsTest(){
-        MillionDollarsButMessageCommand command = new MillionDollarsButMessageCommand("testquestions.json", null);
+        MillionDollarsButMessageCommand command = new MillionDollarsButMessageCommand();
+        QuestionService.getInstance().init(null, "testquestions.json");
 
         String question = command.getMessage();
 
-        String[] validQuestions = new String[]{MILLION_DOLLARS_PREFIX + "You don't get a million dollars.", MILLION_DOLLARS_PREFIX + "You are now dead.", MILLION_DOLLARS_PREFIX + "You get two million dollars."};
+        String[] validQuestions = new String[]{"Question 0: " + MILLION_DOLLARS_PREFIX + "You don't get a million dollars.", "Question 1: " + MILLION_DOLLARS_PREFIX + "You are now dead.", "Question 2: " + MILLION_DOLLARS_PREFIX + "You get two million dollars."};
 
-        Assert.assertTrue(Arrays.asList(validQuestions).contains(question));
+        Assert.assertTrue("Actual output: " + question, Arrays.asList(validQuestions).contains(question));
     }
 
 }
