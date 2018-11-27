@@ -25,14 +25,19 @@ public class QuestionService {
 
     private IDiscordClient discordContext;
 
-    // TODO: This is what will eventually be stored in a DB
+    /*
+     * TODO: Responses is what will eventually be stored in a DB
+     * TODO: For responses / positive count, consider just having one data structure for the user
+     */
     private Map<Long, List<QuestionResponse>> responses;
+    private Map<Long, Integer> positiveResponsesCount;
     private Map<String, String> questions;
     private Random rng;
     private boolean initialized = false;
 
     private QuestionService() {
         responses = new HashMap<>();
+        positiveResponsesCount = new HashMap<>();
         rng = new Random();
     }
 
@@ -49,19 +54,6 @@ public class QuestionService {
     public void init(IDiscordClient context, String fileName) {
 
         discordContext = context;
-
-        /* Does not seem to add everyone, will lazily add
-        // Store user IDs on startup
-        if(discordContext != null)
-        {
-            for(IUser user : discordContext.getUsers())
-            {
-                ArrayList<QuestionResponse> userResponses = new ArrayList<>();
-                responses.put(user.getLongID(), userResponses);
-            }
-        }
-        */
-
         questions = loadQuestionsFromFile(fileName);
         initialized = true;
     }
@@ -108,10 +100,12 @@ public class QuestionService {
     public boolean recordResponse(boolean answer, String questionID, long userID) {
         QuestionResponse response = new QuestionResponse(answer, questionID);
         List<QuestionResponse> userResponses = responses.get(userID);
+        Integer positiveResponseCount = positiveResponsesCount.get(userID);
 
         if(userResponses == null) {
             userResponses = new ArrayList<>();
             responses.put(userID, userResponses);
+            positiveResponseCount = 0;
         }
 
         // TODO: Inefficient, but will do for now
@@ -120,7 +114,10 @@ public class QuestionService {
                 return false;
             }
         }
+
         userResponses.add(response);
+        int newPositives = response.getAnswer() ? positiveResponseCount + 1 : positiveResponseCount;
+        positiveResponsesCount.put(userID, newPositives);
         return true;
     }
 
@@ -134,8 +131,20 @@ public class QuestionService {
         return responses.get(userID);
     }
 
+    public int getPositiveResponseCount(long userID)
+    {
+        Integer count = positiveResponsesCount.get(userID);
+        return count == null ? 0 : count;
+    }
+
     private Map<String, String> loadQuestionsFromFile(String fileName)
     {
+        if(fileName == null)
+        {
+            // TODO: Consider throwing exception (if we don't support adding questions at runtime), at the very least logging
+            return null;
+        }
+
         // Read the json from the resources folder
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         String json = BotUtils.convertInputStreamToString(classloader.getResourceAsStream(fileName));
@@ -144,6 +153,7 @@ public class QuestionService {
         HashMap<String, String> questionsMap = new HashMap<>();
 
         // Read the questions into an array
+        // TODO: LOGGING!
         try
         {
             String[] questionArray = mapper.readValue(json, String[].class);
