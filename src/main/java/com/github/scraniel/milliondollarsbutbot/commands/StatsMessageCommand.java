@@ -30,6 +30,8 @@ public class StatsMessageCommand extends AbstractMessageCommand {
             return false;
         }
 
+        boolean fullStats = currentArguments.length == 1 && "full".compareToIgnoreCase(currentArguments[0]) == 0;
+
         // So we can get the user who's asking for stats TODO: implement requesting others after
         MessageReceivedEvent messageReceivedEvent = (MessageReceivedEvent)currentEvent;
         IUser user = messageReceivedEvent.getAuthor();
@@ -66,7 +68,7 @@ public class StatsMessageCommand extends AbstractMessageCommand {
         }
         builder.append("\n\n");
 
-        if(noResponses.size() > 0)
+        if(noResponses.size() > 0 && fullStats)
         {
             appendResponses(builder, NO_ANSWERS_PREFIX, noResponses);
             if(yesResponses.size() > 0) {

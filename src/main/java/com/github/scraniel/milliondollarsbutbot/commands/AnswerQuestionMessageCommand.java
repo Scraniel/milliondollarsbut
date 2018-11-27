@@ -62,7 +62,7 @@ public class AnswerQuestionMessageCommand extends AbstractMessageCommand {
             return true;
         }
 
-        int money = QuestionService.getInstance().getResponses(userId).size();
+        int money = QuestionService.getInstance().getPositiveResponseCount(userId);
 
         response = String.format(VALID_PREFIX_FORMAT, userId, money);
         return true;
