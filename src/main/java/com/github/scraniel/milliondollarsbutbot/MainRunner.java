@@ -22,13 +22,13 @@ public class MainRunner {
         EventHandler handler = new EventHandler();
         handler.init(args[0]);
 
-        QuestionService.getInstance().init(handler.getDiscordContext(), QUESTIONS_JSON);
+        QuestionService.getInstance().init(QUESTIONS_JSON);
 
         // TODO: Source this out to a config file?
-        handler.registerMessageCommand("joke", new JokeMessageCommand());
-        handler.registerMessageCommand("mdb", new MillionDollarsButMessageCommand());
-        handler.registerReactionCommand("ballpit", new BallpitMessageCommand());
-        handler.registerMessageCommand("answer", new AnswerQuestionMessageCommand());
-        handler.registerMessageCommand("stats", new StatsMessageCommand());
+        handler.registerMessageEvent("joke", new JokeMessageCommand());
+        handler.registerMessageEvent("mdb", new MillionDollarsButMessageCommand());
+        handler.registerMessageEvent("answer", new AnswerQuestionMessageCommand());
+        handler.registerMessageEvent("stats", new StatsMessageCommand());
+        handler.registerReactionEvent("ballpit", new BallpitMessageCommand());
     }
 }

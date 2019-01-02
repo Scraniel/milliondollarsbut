@@ -7,11 +7,6 @@ import sx.blah.discord.api.IDiscordClient;
 
 public class MillionDollarsButMessageCommand extends AbstractMessageCommand {
 
-    // If we add any other params, consider builder pattern
-    public MillionDollarsButMessageCommand(IDiscordClient context){
-        super(context);
-    }
-
     public MillionDollarsButMessageCommand()
     {
         super();

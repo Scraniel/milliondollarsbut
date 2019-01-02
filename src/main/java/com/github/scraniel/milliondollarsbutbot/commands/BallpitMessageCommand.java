@@ -32,7 +32,7 @@ public class BallpitMessageCommand extends AbstractMessageCommand {
         oldChannel = currentChannel;
 
         // Set current channel to ballpit
-        for (IChannel channel : discordContext.getChannels()) {
+        for (IChannel channel : currentEvent.getClient().getChannels()) {
             if(channel.getName().equals(BALLPIT_NAME)) {
                 currentChannel = channel;
                 break;

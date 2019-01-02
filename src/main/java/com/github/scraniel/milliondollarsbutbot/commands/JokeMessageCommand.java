@@ -2,7 +2,6 @@ package com.github.scraniel.milliondollarsbutbot.commands;
 
 import com.github.scraniel.basebot.commands.AbstractMessageCommand;
 import com.github.scraniel.basebot.BotUtils;
-import sx.blah.discord.api.IDiscordClient;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -10,11 +9,6 @@ import java.net.URL;
 public class JokeMessageCommand extends AbstractMessageCommand {
 
     private final String USER_AGENT = "Million Dollars But... Bot (https://github.com/scraniel/milliondollarsbut)";
-
-    public JokeMessageCommand(IDiscordClient context)
-    {
-        super(context);
-    }
 
     public JokeMessageCommand()
     {

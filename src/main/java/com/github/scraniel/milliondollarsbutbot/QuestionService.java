@@ -23,8 +23,6 @@ public class QuestionService {
 
     private static final QuestionService INSTANCE = new QuestionService();
 
-    private IDiscordClient discordContext;
-
     /*
      * TODO: Responses is what will eventually be stored in a DB
      * TODO: For responses / positive count, consider just having one data structure for the user
@@ -48,12 +46,10 @@ public class QuestionService {
     /**
      * Initializes the users and questions from an input file
      *
-     * @param context IDiscordClient to be used to interact with discord
      * @param fileName file to load questions from
      */
-    public void init(IDiscordClient context, String fileName) {
+    public void init(String fileName) {
 
-        discordContext = context;
         questions = loadQuestionsFromFile(fileName);
         initialized = true;
     }
