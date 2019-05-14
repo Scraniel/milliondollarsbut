@@ -1,9 +1,8 @@
-package com.github.scraniel.milliondollarsbutbot.commands;
+package com.github.scraniel.robotosensei.commands.mbd;
 
 
 import com.github.scraniel.basebot.commands.AbstractMessageCommand;
-import com.github.scraniel.milliondollarsbutbot.QuestionService;
-import sx.blah.discord.api.IDiscordClient;
+import com.github.scraniel.robotosensei.mdb.QuestionService;
 
 public class MillionDollarsButMessageCommand extends AbstractMessageCommand {
 

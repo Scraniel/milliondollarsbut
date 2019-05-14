@@ -1,8 +1,7 @@
-package com.github.scraniel.milliondollarsbutbot.commands;
+package com.github.scraniel.robotosensei.commands.mbd;
 
 import com.github.scraniel.basebot.commands.AbstractMessageCommand;
-import com.github.scraniel.milliondollarsbutbot.QuestionService;
-import sx.blah.discord.handle.impl.events.guild.channel.ChannelEvent;
+import com.github.scraniel.robotosensei.mdb.QuestionService;
 import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
 import sx.blah.discord.handle.obj.IUser;
 

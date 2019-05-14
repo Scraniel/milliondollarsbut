@@ -1,4 +1,4 @@
-package com.github.scraniel.milliondollarsbutbot.data;
+package com.github.scraniel.robotosensei.data;
 
 public class Question {
     private final String MILLION_DOLLARS_PREFIX = "You get a million dollars, but... ";

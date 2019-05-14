@@ -1,4 +1,4 @@
-package com.github.scraniel.milliondollarsbutbot.commands;
+package com.github.scraniel.robotosensei.commands;
 
 import com.github.scraniel.basebot.commands.AbstractMessageCommand;
 import com.github.scraniel.basebot.BotUtils;

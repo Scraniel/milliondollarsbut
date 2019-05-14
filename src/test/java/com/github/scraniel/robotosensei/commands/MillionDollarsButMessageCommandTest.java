@@ -1,6 +1,7 @@
-package com.github.scraniel.milliondollarsbutbot.commands;
+package com.github.scraniel.robotosensei.commands;
 
-import com.github.scraniel.milliondollarsbutbot.QuestionService;
+import com.github.scraniel.robotosensei.mdb.QuestionService;
+import com.github.scraniel.robotosensei.commands.mbd.MillionDollarsButMessageCommand;
 import org.junit.Assert;
 import org.junit.Test;
 

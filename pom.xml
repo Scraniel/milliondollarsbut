@@ -31,7 +31,7 @@
                             <!-- Specify your own main class here: {package}.{class} -->
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.github.scraniel.milliondollarsbutbot.MainRunner</mainClass>
+                            <mainClass>com.github.scraniel.robotosensei.MainRunner</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -79,7 +79,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.5</version>
+            <version>[2.9.8,)</version>
         </dependency>
 
         <dependency>

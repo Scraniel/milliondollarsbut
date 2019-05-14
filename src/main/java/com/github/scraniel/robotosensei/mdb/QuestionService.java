@@ -1,23 +1,17 @@
-package com.github.scraniel.milliondollarsbutbot;
+package com.github.scraniel.robotosensei.mdb;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.scraniel.basebot.BotUtils;
-import com.github.scraniel.milliondollarsbutbot.data.Question;
-import com.github.scraniel.milliondollarsbutbot.data.QuestionResponse;
-import com.koloboke.collect.impl.hash.Hash;
-import sx.blah.discord.api.IDiscordClient;
-import sx.blah.discord.handle.obj.IUser;
+import com.github.scraniel.robotosensei.data.Question;
+import com.github.scraniel.robotosensei.data.QuestionResponse;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 public class QuestionService {
 

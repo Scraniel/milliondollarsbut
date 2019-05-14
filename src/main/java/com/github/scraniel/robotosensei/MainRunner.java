@@ -1,12 +1,12 @@
-package com.github.scraniel.milliondollarsbutbot;
+package com.github.scraniel.robotosensei;
 
 import com.github.scraniel.basebot.EventHandler;
-import com.github.scraniel.milliondollarsbutbot.commands.AnswerQuestionMessageCommand;
-import com.github.scraniel.milliondollarsbutbot.commands.BallpitMessageCommand;
-import com.github.scraniel.milliondollarsbutbot.commands.JokeMessageCommand;
-import com.github.scraniel.milliondollarsbutbot.commands.MillionDollarsButMessageCommand;
-import com.github.scraniel.milliondollarsbutbot.commands.StatsMessageCommand;
-import com.github.scraniel.milliondollarsbutbot.data.Question;
+import com.github.scraniel.robotosensei.commands.mbd.AnswerQuestionMessageCommand;
+import com.github.scraniel.robotosensei.commands.BallpitMessageCommand;
+import com.github.scraniel.robotosensei.commands.JokeMessageCommand;
+import com.github.scraniel.robotosensei.commands.mbd.MillionDollarsButMessageCommand;
+import com.github.scraniel.robotosensei.commands.StatsMessageCommand;
+import com.github.scraniel.robotosensei.mdb.QuestionService;
 
 public class MainRunner {
 
