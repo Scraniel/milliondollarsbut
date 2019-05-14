@@ -14,7 +14,7 @@ public class MillionDollarsButMessageCommandTest {
     @Test
     public void MillionDollarsButCommand_GetQuestionsTest(){
         MillionDollarsButMessageCommand command = new MillionDollarsButMessageCommand();
-        QuestionService.getInstance().init(null, "testquestions.json");
+        QuestionService.getInstance().init("testquestions.json");
 
         String question = command.getMessage();
 
