@@ -1,2 +1,2 @@
-# milliondollarsbut
-Discord bot to retrieve "You get a million dollars but..." questions
+# roboto-sensei
+Little personal Discord bot that does silly things like ask "You get a million dollars but..." questions
